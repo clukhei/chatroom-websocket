@@ -1,0 +1,36 @@
+<form [formGroup]="form">
+  <div class="form-group">
+    <label for="name">Name</label>
+    <input
+      type="text"
+      name="name"
+      id="name"
+      class="form-control"
+      formControlName="name"
+    />
+  </div>
+  <button class="btn btn-primary" type="button" (click)="toggleConnection()">
+    {{ action }}
+  </button>
+  <div class="form-group">
+    <label for="msg">Message</label>
+    <input
+      type="text"
+      name="msg"
+      id="msg"
+      class="form-control"
+      formControlName="message"
+    />
+  </div>
+
+  <button class="btn btn-primary" type="button" (click)="postMsg()">
+    Send Message!
+  </button>
+</form>
+
+<hr>
+<h3>Chats</h3>
+<div *ngFor= "let m of messages">
+    <code>{{m.from}}</code>
+    <span>{{m.message}}</span>
+</div>
